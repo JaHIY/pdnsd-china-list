@@ -1,0 +1,15 @@
+#!/usr/bin/awk -f
+
+BEGIN {
+    FS="/";
+    printf "exclude=";
+}
+{
+    if ( NR != 1 ) {
+        printf ", ";
+    }
+    printf "\".%s\"", $2;
+}
+END {
+    print ";";
+}

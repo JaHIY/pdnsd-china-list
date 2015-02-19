@@ -1,0 +1,16 @@
+#!/bin/sh -
+
+sed -e 's/^\(.*\)#.*$/\1/' -e '/^[[:space:]]*$/d' "$1" | \
+    awk 'BEGIN{
+             FS = "=";
+             printf "reject=";
+         }
+         {
+             if ( NR != 1 ) {
+                    printf ", ";
+                 }
+             printf "\"%s\"", $2;
+         }
+         END {
+                 print ";";
+             }'
