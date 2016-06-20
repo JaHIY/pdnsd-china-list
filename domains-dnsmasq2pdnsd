@@ -6,7 +6,7 @@ BEGIN {
 }
 {
     if ( NR != 1 ) {
-        printf ", ";
+        printf ",\n";
     }
     printf "\".%s\"", $2;
 }
